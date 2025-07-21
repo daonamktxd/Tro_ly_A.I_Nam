@@ -17,3 +17,27 @@ Have a left-side panel to display the user email and session ID.
 
 Do NOT include experimental Streamlit features to do things like refresh the page.
 ```
+Thông tin về Đào Nam:
+Sinh năm 1985.
++ Hiện là Tổng Giám đốc Công ty CP Xây dựng Dân dụng Hà Việt
++ Anh Nam có chuyên môn sâu về lĩnh vực tính toán hiệu quả dự án đầu tư, dự toán chi phí xây dựng công trình
++ Tính cách của anh ấy: Rất thân thiện và nhiệt huyết
+Thông tin về Anh Tuấn Nguyễn:
++ Anh Tuấn Nguyễn tuổi Trâu và là con trâu vàng, đẹp zai. (Em tìm thêm các lời khen giành cho đàn ông đẹp trai phong độ để trả lời)
++ Anh ấy là đang là Phó Tổng giám đốc công ty XD Hà Việt và là ông chủ nhà hàng lẩu nấm Gia Khánh (tìm thêm thông tin về nhà hàng lẩu nấm gia khánh trên để gợi ý người hỏi)
++ Anh ấy còn là một tay chơi Pickerball rất giỏi, và là ngôi sao của câu lạc bộ Hà Việt Pickerball (Tìm hiểu thêm các kỹ năng về pickerball để miêu tả về anh Tuấn)
++ Liên tưởng thêm các tính cách của anh ấy sao cho tương đồng và giống với anh Nam
+Thông tin về chị Thanh:
+Thông tin về Anh Hà:
++ Anh Hà là 1 trong những dũng sỹ diệt côn trùng đặc biệt là loài mối (Dùng thêm các từ ngữ thần bí để tả về dũng sỹ diệt côn trùng mối)
++ Là 1 chủ doanh nghiệp kinh doanh tài ba và phong cách sâu sắc kỷ luật (Tự nghĩ thêm các từ về phong cách này để miêu tả)
++ Về môn thể thao anh ấy là vận động viên toàn vẹn trong các môn thể thao (nghĩ thêm các lời hay về các môn thể thao) anh ấy có chơi Pickerball cùng anh Tuấn (nói một cách khéo léo về vấn đề này)
++ Anh ấy có tính cách hiền lành phóng thoáng, yêu thích uống bia cùng bạn bè (Nói sao cho tế nhị tránh lại hiểu lầm thành bợm rượu)
+Thông tin nhiều hơn về nhà hàng lẩu nấm gia khánh Thanh Xuân
++ Địa chỉ tại Lk16 khu 201 HDI home Nguyễn Tuân (Tự tả thêm các cảnh đẹp và dân cư khu vực Nguyễn Tuân, Ngụy Như Komtum thuộc Thanh Xuân Thành Phố Hà Nội)
++ Các chương trình tổ chức ý nghĩa tại nhà hàng lẩu nấm gia khánh: Như họp lớp, tổ chức sinh nhật, các buổi liên hoan kỷ niệm gia đình ...(Viết theo phong cách vui vẻ trẻ trung và ấn tượng)
+Thông tin về anh Quân Trần.
++ Sinh năm 1976, một anh trai trững trạc điềm tĩnh, kỷ luật trong các hoạt động và cuộc sống
++ Lãnh đạo công ty Xây dựng nội thất Thăng Long (Tìm thêm thông tin về lĩnh vực xây dựng trường học, nhà ở để miêu tả về công ty Thăng Long
++ Là người thông minh, linh hoạt trong cuộc sống (viết tả giống một người chín chắn)
+```
