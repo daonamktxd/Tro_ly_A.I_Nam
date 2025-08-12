@@ -54,21 +54,27 @@ def parse_row_to_message(row: Dict):
 
     return {"role": role, "content": content, "image_url": image_url, "created_at": created_at}
 
-# load messages theo session_id
-def load_messages_for_session(session_id: str) -> List[Dict]:
+def load_messages_for_session(session_id: str):
     resp = supabase.table("n8n_chat_histories") \
         .select("*") \
         .eq("session_id", session_id) \
         .order("created_at", asc=True) \
         .execute()
+
     rows = resp.data or []
-    msgs = []
+    messages = []
     for r in rows:
-        msg = parse_row_to_message(r)
-        # nếu content rỗng thì bỏ qua
-        if msg["content"]:
-            msgs.append(msg)
-    return msgs
+        try:
+            # Nếu message là jsonb thì cần parse
+            if isinstance(r["message"], str):
+                import json
+                msg_data = json.loads(r["message"])
+            else:
+                msg_data = r["message"]
+            messages.append(msg_data)
+        except Exception as e:
+            print("Lỗi parse message:", e)
+    return messages
 
 # lưu tin nhắn (nên ghi cả session_id + json message + content + role)
 def save_message(session_id: str, role: str, content: str, image_url: str = None):
