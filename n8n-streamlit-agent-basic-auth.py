@@ -14,6 +14,17 @@ def get_current_user_id():
         return session["user"]["id"]
     return None
 
+# ---- Hàm tải lịch sử hội thoại ----
+def load_messages(user_id: str):
+    response = (
+        supabase.table("n8n_chat_histories")
+        .select("*")
+        .eq("user_id", user_id)
+        .order("created_at", desc=False)  # lấy theo thứ tự thời gian
+        .execute()
+    )
+    return response.data or []
+
 # ---- Hàm lưu tin nhắn ----
 def save_message(user_id: str, role: str, content: str):
     data = {
@@ -30,19 +41,29 @@ st.title("Chatbot với lưu lịch sử vào Supabase")
 # Giả sử đã login và lưu session vào st.session_state["supabase_session"]
 # Ở đây mình test tạm
 if "supabase_session" not in st.session_state:
-    st.session_state["supabase_session"] = {"user": {"id": "00000000-0000-0000-0000-000000000000"}}  # test ID
+    st.session_state["supabase_session"] = {
+        "user": {"id": "00000000-0000-0000-0000-000000000000"}  # test ID
+    }
 
 user_id = get_current_user_id()
 
 if not user_id:
     st.warning("Bạn cần đăng nhập để chat.")
 else:
-    message = st.text_input("Nhập tin nhắn:")
-    role = st.selectbox("Vai trò", ["user", "assistant"])
+    # Lần đầu load lịch sử từ Supabase
+    if "messages" not in st.session_state:
+        st.session_state.messages = load_messages(user_id)
 
-    if st.button("Gửi"):
-        resp = save_message(user_id, role, message)
-        if resp.data:
-            st.success("Đã lưu tin nhắn vào Supabase!")
-        else:
-            st.error("Lưu thất bại.")
+    # Hiển thị lịch sử hội thoại
+    for msg in st.session_state.messages:
+        with st.chat_message(msg["role"]):
+            st.markdown(msg["content"])
+
+    # Ô nhập tin nhắn
+    if prompt := st.chat_input("Nhập tin nhắn"):
+        # Hiển thị ngay trên UI
+        st.chat_message("user").markdown(prompt)
+        st.session_state.messages.append({"role": "user", "content": prompt})
+
+        # Lưu vào Supabase
+        save_message(user_id, "user", prompt)
